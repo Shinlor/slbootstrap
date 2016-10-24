@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% block content_title %}
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">{{ SITENAME }}</h1>
+        <p class="lead">{{ SITESUBTITLE }}</p>
+      </div>
+    </div>
+{% endblock %}
+
+
+     <div class="container">
+        <div class="row">
+
+
+        <div class="col-md-8">
+{% for article in articles_page.object_list %}
+          <div class="card">
+              <div class="card-block">
+                <h4 class="card-title">{{ article.title }}</h4>
+                <p class="card-text">{{ article.summary }}</p>
+                <p class="card-text text-muted">Written by 
+                    {% for author in article.authors %}
+                        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                    {% endfor %}
+                 {% if article.category %}
+                  in 
+                  <span><a class="tag tag-primary" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category}}</a></span>
+                  {% endif %}
+                  on {{ article.locale_date }}. Tags: 
+                  <span><a class="tag tag-pill tag-default" href="#">tag1</a></span>
+                  <span><a class="tag tag-pill tag-success" href="#">tag2</a></span>
+                  <span><a class="tag tag-pill tag-warning" href="#">tag3</a></span>
+                  </p>
+                      <div class="card-text text-xs-right">
+                      <a class="btn btn-secondary btn-sm" href="/{{ article.url }}" role="button">Read more..</a>
+                      </div>
+              </div>
+          </div>         
+        
+{% endfor %}
+
+
+        {% if articles_page.has_other_pages() %}
+                {% include 'pagination.html' %}
+        {% endif %}
+
+</div><!-- /.blog-main -->
+
+{% endblock content %}

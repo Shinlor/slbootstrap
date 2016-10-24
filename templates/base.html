@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        {% block head %}
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="theme/css/bootstrap-flex.min.css">
+        {% endblock head %}
+</head>
+  <body>
+
+    <nav class="navbar navbar-full navbar-dark bg-inverse">
+      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+        <a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">category</a>
+            <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+              {% if DISPLAY_CATEGORIES_ON_MENU %}
+                {% for cat, null in categories %}
+                  <a class="dropdown-item" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                {% endfor %}
+              {% endif %}
+             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Other</a>
+          </li>
+        </ul>
+           <div class="navbar-text float-xs-right text-muted font-italic">
+           Reading make a full man,conference a ready man,and writing an exact man.
+           </div>
+      </div>
+    </nav>
+
+
+     <!-- Main -->
+
+
+        {% block content %}
+        {% endblock %}
+        
+
+        <div class="col-md-3 offset-sm-1"><!-- /.Sidebar -->
+
+          <br/>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn"><button class="btn btn-secondary" type="button">Go!</button></span>
+          </div>
+          <br/>   
+          
+          <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#categories">
+            CATEGORIES
+          </button>
+          <div class="collapse in" id="categories">
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                 {% for cat, null in categories %}                 
+                <a href="{{ SITEURL }}/{{ cat.url }}" class="list-group-item list-group-item-info">{{ cat }}</a>
+                 {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <br/>
+
+          <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#tags">
+            TAGS
+          </button>
+          <div class="collapse in" id="tags">
+            <ul  class="card card-block">
+              <button type="button" class="btn btn-outline-danger btn-sm">TagsSample</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm">Info</button>
+              <button type="button" class="btn btn-outline-success btn-sm">success</button>
+              <button type="button" class="btn btn-outline-warning btn-sm">World</button>
+              <button type="button" class="btn btn-outline-primary btn-sm">primary</button>
+              <button type="button" class="btn btn-outline-info btn-sm">Info</button>
+              <button type="button" class="btn btn-outline-success btn-sm">Info</button>     
+              <button type="button" class="btn btn-outline-info">Python</button>
+              <button type="button" class="btn btn-outline-warning">C++</button>
+              <button type="button" class="btn btn-outline-info">Want</button>
+              <button type="button" class="btn btn-primary">Info</button>
+              <button type="button" class="btn btn-secondary">Info</button>
+              <button type="button" class="btn btn-info">Coffe</button>
+              <button type="button" class="btn btn-warning">Info</button>
+              <button type="button" class="btn btn-success">Desktop</button>
+              <button type="button" class="btn btn-primary">Info</button>
+            </ul>
+          </div>
+          <br/>
+
+          <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#social">
+            SOCIAL
+          </button>
+          <div class="collapse in" id="social">
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <a href="#" class="list-group-item">social1</a>
+                <a href="#" class="list-group-item">social2</a>
+                <a href="#" class="list-group-item">social3</a>
+              </ul>
+            </div>
+          </div>
+          <br/>
+
+        </div>
+      </div>
+   
+
+    <footer class="footer">
+      <div class="container">
+        <br/><br/>
+        <p class="text-xs-center text-muted">Powered by <a href="">######</a>. 
+        Theme base on <a href="https://github.com/twbs/bootstrap">Bootstrap 4 </a>by <a href="#">Shinlor</a></p>
+        <br/><br/>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
